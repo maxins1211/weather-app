@@ -1,0 +1,172 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  font-size: 2rem;
+  height: 25vh;
+  text-align: center;
+  background-color: #e0e0e0;
+  padding: 10px;
+}
+
+header h1 {
+  font-weight: 450;
+}
+
+#city {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+#search {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #4caf50;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  width: 250px;
+}
+
+.weather-app {
+  font-family: "Lato", sans-serif;
+  width: 80%;
+  margin: auto;
+}
+/* Current weather */
+.current-weather {
+  width: 35%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 10px;
+}
+
+.condition-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+#current-weather-icon {
+  width: 64px;
+  height: 64px;
+}
+
+#place {
+  font-size: 3rem;
+  font-weight: 400;
+  margin: 5px;
+}
+#condition {
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+#temp {
+  font-size: 2rem;
+  margin: 5px;
+  font-weight: 400;
+}
+#high-low-temp {
+  margin: 5px;
+  font-weight: 400;
+}
+
+/* Hourly Forecast */
+.hourly-forecast {
+  width: 60%;
+  overflow: auto;
+  white-space: nowrap;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+}
+
+.hour-card {
+  display: inline-block;
+  text-align: center;
+  height: 150px;
+  margin: 10px;
+}
+
+.hour-card * {
+  margin: 5px;
+}
+
+.hour-card h4 {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.hour-card h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.hour-weather-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* error */
+
+.error {
+  text-align: center;
+  margin: auto;
+  font-size: 2rem;
+  color: grey;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .current-weather {
+    width: 70%;
+  }
+
+  .hourly-forecast {
+    width: 70%;
+  }
+  .weather-app {
+    height: 70vh;
+  }
+  header {
+    height: 30vh;
+    padding: 10px;
+    font-size: 1.5rem;
+  }
+}
