@@ -3,12 +3,10 @@ async function getWeather(input) {
     const response = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=56004980ec19444587a63844240201&q=${input}&days=2`
     );
-    console.log(response);
     if (!response.ok) {
       throw new Error("Can't find city name, please try again!");
     }
     const data = await response.json();
-    console.log(data);
     return {
       name: data["location"]["name"],
       condition: data["current"]["condition"],
@@ -18,7 +16,6 @@ async function getWeather(input) {
     };
   } catch (error) {
     renderError(error.message);
-    console.log(error.message);
   }
 }
 
@@ -37,15 +34,7 @@ async function updateScreen(input) {
     highTemp,
     lowTemp
   );
-  console.log(data);
-  console.log(currentHour);
-  console.log(hourlyData);
   renderHourCards(hourlyData, currentHour);
-}
-
-function splitIconSrc(iconData) {
-  const src = iconData.split("//cdn.weatherapi.com");
-  return src[1].toString();
 }
 
 function getCurrentHour(time) {
@@ -75,7 +64,7 @@ function renderCurrentWeather(
   place.setAttribute("id", "place");
   condition.textContent = conditionData;
   condition.setAttribute("id", "condition");
-  currentWeatherIcon.setAttribute("src", `${splitIconSrc(iconSrc)}`);
+  currentWeatherIcon.setAttribute("src", iconSrc);
   currentWeatherIcon.setAttribute("icon", "current-weather-icon");
   temp.textContent = `${dataTemp}°`;
   temp.setAttribute("id", "temp");
@@ -113,7 +102,7 @@ function get24hourData(time, arr) {
   return data;
 }
 
-function renderHourCards(hourlyData, currentHour, day) {
+function renderHourCards(hourlyData, currentHour) {
   const hourlyForecast = document.createElement("div");
   const weatherApp = document.querySelector(".weather-app");
   function renderHourCard(dataHour, dataIcon, dataTemp) {
@@ -183,5 +172,10 @@ function weatherApp() {
     input.value = "";
   });
 }
+
+// function splitIconSrc(iconData) {
+//   const src = iconData.split("//cdn.weatherapi.com");
+//   return src[1].toString();
+// }
 
 weatherApp();
